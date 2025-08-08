@@ -3,16 +3,44 @@ import { sleep } from 'k6';
 import { error_check } from '../check/check.js';
 import { scenario } from 'k6/execution';
 
-import { ran } from '../api/script.js';
-import { callback_scb } from '../api/getJson.js';
+import { หน้าสร้างองค์กร } from '../api/หน้าสร้างองค์กร.js';
+import { ระยะเวลาเก็บข้อมูล } from '../api/ระยะเวลาเก็บข้อมูล.js';
+import { ระยะการเก็บข้อมูลปีฐาน } from '../api/ระยะการเก็บข้อมูลปีฐาน.js';
+import { ปีฐาน } from '../api/ปีฐาน.js';
+import { การปล่อยก๊าซเรือนกระจก } from '../api/การปล่อยก๊าซเรือนกระจก.js';
+import { ระบบสมาชิกทั้งหมด } from '../api/ระบบสมาชิกทั้งหมด.js';
+import { รายงานทั้งหมด } from '../api/รายงานทั้งหมด.js';
+import { แยกรายงาน } from '../api/แยกรายงาน.js';
+import { emissionทั้งหมด } from '../api/emissionทั้งหมด.js';
+import { scope1 } from '../api/scope1.js';
+import { scope2 } from '../api/scope2.js';
+import { scope3 } from '../api/scope3.js';
 
 
 
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-  response = ran()
-  //response = callback_scb(scenario)
+  //==================== หน้าองค์กรทั้งหมด =========================//
+  response = หน้าสร้างองค์กร()
+  //response = ระยะเวลาเก็บข้อมูล()
+  //response = ระยะการเก็บข้อมูลปีฐาน()
+  //response = ปีฐาน()
+  //response = การปล่อยก๊าซเรือนกระจก()
+
+  //==================== หน้าสมาชิกทั้งหมด =========================//
+  //response = ระบบสมาชิกทั้งหมด()
+
+  //==================== หน้ารายงานทั้งหมด =========================//
+  //response = รายงานทั้งหมด()
+  //response = แยกรายงาน()
+
+  //==================== หน้าDashboard =========================//
+  //response = emissionทั้งหมด()
+  //response = scope1()
+  //response = scope2()
+  //response = scope3()
+
 
   
   error_check(response);
